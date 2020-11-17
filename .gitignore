@@ -308,7 +308,7 @@ dist
 # .idea/modules
 # *.iml
 # *.ipr
-
+.idea
 # CMake
 
 # Mongo Explorer plugin
