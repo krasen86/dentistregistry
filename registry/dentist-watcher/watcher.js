@@ -1,4 +1,4 @@
-var publisher = require( "../dentist-watcher/publisher");
+const publisher = require( "../dentist-watcher/publisher");
 const fs = require("fs");
 
 const watcher = {

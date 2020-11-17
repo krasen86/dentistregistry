@@ -1,7 +1,7 @@
-var data = require("../dentist-data/dentists.json");
-var variables = require("../config/variables");
-var mqtt = require('mqtt');
-var client = mqtt.connect(variables.URL); //localhost
+const data = require("../dentist-data/dentists.json");
+const variables = require("../config/variables");
+const mqtt = require('mqtt');
+const client = mqtt.connect(variables.URL); //localhost
 
 const publisher = {
     publishToBroker() {
