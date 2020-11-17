@@ -1,12 +1,14 @@
 const data = require("../dentist-data/dentists.json");
 const {MQTT} = require("./mqttConnector")
 
-const publisher = {
+class Publisher {
+    constructor() {
+    }
     publishToBroker() {
         MQTT.publish('dentists', JSON.stringify(data));
     }
 }
 
-exports.brokerPublisher = publisher;
+module.exports.Publisher = Publisher;
 
 
