@@ -13,8 +13,6 @@ build:
     - docker
   script:
     - npm install
-    - cd registry
-    - node index.js
 
 test:
   stage: test
