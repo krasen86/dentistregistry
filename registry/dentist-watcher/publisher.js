@@ -1,11 +1,9 @@
 const data = require("../dentist-data/dentists.json");
-const variables = require("../config/variables");
-const mqtt = require('mqtt');
-const client = mqtt.connect(variables.URL); //localhost
+const {MQTT} = require("./mqttConnector")
 
 const publisher = {
     publishToBroker() {
-        client.publish('dentists', JSON.stringify(data));
+        MQTT.publish('dentists', JSON.stringify(data));
     }
 }
 
