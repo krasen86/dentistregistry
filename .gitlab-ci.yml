@@ -19,5 +19,5 @@ test:
   tags:
     - docker
   script:
-    - console.log("Tests haven't been added yet....")
+    - echo "----- Test Running -----"
 
