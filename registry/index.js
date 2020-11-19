@@ -1,13 +1,12 @@
-var mqtt = require('mqtt');
-var publisher = require( "./dentist-watcher/publisher");
-var watcher = require("./dentist-watcher/watcher");
-var variables = require('./config/variables')
+const {Publisher} = require( "./dentist-watcher/publisher");
+const {Watcher} = require("./dentist-watcher/watcher");
+const {MQTT} = require("./dentist-watcher/mqttConnector")
 
-var client = mqtt.connect(variables.URL);
-
-client.on('connect', function () {
-   publisher.brokerPublisher.publishToBroker();
-   watcher.fileWatcher.watch();
+MQTT.on('connect', function () {
+   let publisher = new Publisher();
+   publisher.publishToBroker();
+   let watcher = new Watcher();
+   watcher.watch();
 })
 
 

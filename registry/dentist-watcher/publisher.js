@@ -1,14 +1,17 @@
-var data = require("../dentist-data/dentists.json");
-var variables = require("../config/variables");
-var mqtt = require('mqtt');
-var client = mqtt.connect(variables.URL); //localhost
+const {MQTT} = require("./mqttConnector")
+const fs = require("fs");
+const variables = require("../config/variables")
 
-const publisher = {
+class Publisher {
+    constructor() {
+    }
     publishToBroker() {
-        client.publish('dentists', JSON.stringify(data));
+        fs.readFile('dentist-data/dentists.json', (err, data) => {
+            MQTT.publish(variables.DENTIST_TOPIC, data.toString(), {retain:true});
+        })
     }
 }
 
-exports.brokerPublisher = publisher;
+module.exports.Publisher = Publisher;
 
 
