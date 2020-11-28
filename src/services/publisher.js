@@ -6,7 +6,7 @@ class Publisher {
     constructor() {
     }
     publishToBroker() {
-        fs.readFile('dentist-data/dentists.json', (err, data) => {
+        fs.readFile('data/dentists.json', (err, data) => {
             MQTT.publish(variables.DENTIST_TOPIC, data.toString(), {retain:true});
         })
     }
