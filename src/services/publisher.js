@@ -6,10 +6,15 @@ class Publisher {
     constructor() {
     }
     publishToBroker() {
-        fs.readFile('data/dentists.json', (err, data) => {
-            MQTT.publish(variables.DENTIST_TOPIC, data.toString(), {retain:true});
-            console.log('Published ' + variables.DENTIST_TOPIC)
-        })
+        let fileName = 'data/dentists.json'
+        if (fs.existsSync(fileName)){
+            fs.readFile('data/dentists.json', (err, data) => {
+                if (data){
+                    MQTT.publish(variables.DENTIST_TOPIC, data.toString(), {retain:true});
+                    console.log('Published ' + variables.DENTIST_TOPIC)
+                }
+            })
+        }
     }
 }
 
