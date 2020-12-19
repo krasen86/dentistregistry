@@ -10,7 +10,7 @@ class Publisher {
         if (fs.existsSync(fileName)){
             fs.readFile('data/dentists.json', (err, data) => {
                 if (data){
-                    MQTT.publish(variables.DENTIST_TOPIC, data.toString(), {retain:true});
+                    MQTT.publish(variables.DENTIST_TOPIC, data.toString(), {retain:true, qos: 1});
                     console.log('Published ' + variables.DENTIST_TOPIC)
                 }
             })
