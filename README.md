@@ -1,4 +1,4 @@
-# dentistRegistry
+# Dentistimo DentistRegistry 
 
 ## Link to main documentation repository
 
